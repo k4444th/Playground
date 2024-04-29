@@ -51,7 +51,7 @@
         }
         else if (head.x == next.x && head.y < next.y) {
             startX = head.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
-            startY = element.y * blockSize + + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
+            startY = element.y * blockSize + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
         }
         else if (head.x > next.x && head.y == next.y) {
             startX = head.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
@@ -80,14 +80,14 @@
         }
         else if (element.x == before.x && element.y < before.y) {
             startX = element.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
-            startY = element.y * blockSize + + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
+            startY = element.y * blockSize + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
         }
         else if (element.x > before.x && element.y == before.y) {
             startX = element.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
             startY = element.y * blockSize + blockSize * (1 - (snakeWidth)) / 2;
         }
         else if (element.x < before.x && element.y == before.y) {
-            startX = element.x * blockSize + + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
+            startX = element.x * blockSize + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
             startY = element.y * blockSize + blockSize * (1 - (snakeWidth)) / 2;
         }
 
@@ -102,14 +102,14 @@
         }
         else if (element.x == after.x && element.y < after.y) {
             startX = element.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
-            startY = element.y * blockSize + + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
+            startY = element.y * blockSize + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
         }
         else if (element.x > after.x && element.y == after.y) {
             startX = element.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
             startY = element.y * blockSize + blockSize * (1 - (snakeWidth)) / 2;
         }
         else if (element.x < after.x && element.y == after.y) {
-            startX = element.x * blockSize + + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
+            startX = element.x * blockSize + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
             startY = element.y * blockSize + blockSize * (1 - (snakeWidth)) / 2;
         }
 

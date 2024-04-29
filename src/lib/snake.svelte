@@ -128,7 +128,7 @@
         }
         else if (tail.x == previous.x && tail.y < previous.y) {
             startX = tail.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
-            startY = tail.y * blockSize + + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
+            startY = tail.y * blockSize + blockSize / 2 + blockSize * (1 - (snakeWidth)) / 2;
         }
         else if (tail.x > previous.x && tail.y == previous.y) {
             startX = tail.x * blockSize + blockSize * (1 - (snakeWidth)) / 2;
@@ -154,6 +154,18 @@
         drawSnakeTail(ctx, snakeElements[snakeElements.length - 1], snakeElements[snakeElements.length - 2], blockSize, snakeWidth);
     }
 
+    let generateApplePos = (pos, snakeElements, blocks) => {
+        let overlap = true;
+        while (overlap) {
+            pos.x = Math.floor(Math.random() * blocks);
+            pos.y = Math.floor(Math.random() * blocks);
+            snakeElements.forEach(element => {
+                overlap = false;
+                if (element.x == pos.x && element.y == pos.y) overlap = true;
+            });
+        };
+    }
+
     onMount(async () => {
         let ctx = canvas.getContext("2d");
         let cWidth = parent.offsetWidth > 600 ? 600 : parent.offsetWidth;
@@ -174,7 +186,10 @@
 
         let snakeWidth = 0.8;
 
-        drawApple(ctx, 1, 2, blockSize);
+        let applePos = new Block(0, 0);
+        
+        generateApplePos(applePos, snakeElements, blocks);
+        drawApple(ctx, applePos.x, applePos.y, blockSize);
         drawSnake(ctx, snakeElements, blockSize, snakeWidth);
     });
 </script>

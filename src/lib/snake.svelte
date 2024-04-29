@@ -166,6 +166,20 @@
         };
     }
 
+    let printInstructions = (ctx, cHeight, cWidth) => {
+        ctx.font = "32px arial";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "white";
+        ctx.fillText("Use the arrow keys to move the snake.", cHeight / 2, cWidth / 3);
+    }
+
+    let greyOutGame = (ctx, cHeight, cWidth) => {
+        ctx.fillStyle = darkGrey;
+        ctx.globalAlpha = 0.6;
+        ctx.fillRect(0, 0, cHeight, cWidth);
+        ctx.globalAlpha = 1;
+    }
+
     onMount(async () => {
         let ctx = canvas.getContext("2d");
         let cWidth = parent.offsetWidth > 600 ? 600 : parent.offsetWidth;
@@ -182,6 +196,8 @@
             new Block(11, 10),
             new Block(10, 10),
             new Block(9, 10)
+
+
         ];
 
         let snakeWidth = 0.8;
@@ -191,6 +207,8 @@
         generateApplePos(applePos, snakeElements, blocks);
         drawApple(ctx, applePos.x, applePos.y, blockSize);
         drawSnake(ctx, snakeElements, blockSize, snakeWidth);
+        greyOutGame(ctx, cHeight, cWidth);
+        printInstructions(ctx, cHeight, cWidth);
     });
 </script>
 
